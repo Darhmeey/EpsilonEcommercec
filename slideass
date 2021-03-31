@@ -1,0 +1,136 @@
+                    HTML CODE
+
+
+<div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="./assets/Abaya.jpg" style="width:50%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="./assets/ankara-gown.jpg" style="width:40%">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="./assets/Dress.jpg" style="width:50%">
+        </div>
+        <div class="mySlides fade">
+            <img src="./assets/Jacket.jpg" style="width:50%">
+        </div>
+        <div class="mySlides fade">
+            <img src="./assets/long-jacket.jpg" style="width:50%">
+        </div>
+        <div class="mySlides fade">
+            <img src="./assets/material-gown.jpg" style="width:50%">
+        </div>
+        <div class="mySlides fade">
+            <img src="./assets/Sandal.jpg" style="width:40%">
+        </div>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+
+
+
+
+                            CSS CODE
+
+
+
+
+
+ 
+    body {
+        font-family: Verdana, sans-serif;
+    }
+    
+    .mySlides {
+        display: none;
+        margin-left: 18rem;
+        width: 50vw;
+    }
+    
+    img {
+        vertical-align: middle;
+    }
+    
+    .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+    }
+    
+    .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+    
+    .active {
+        background-color: #717171;
+    }
+    
+    .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+    }
+    
+    @-webkit-keyframes fade {
+        from {
+            opacity: .4
+        }
+        to {
+            opacity: 1
+        }
+    }
+    
+    @keyframes fade {
+        from {
+            opacity: .4
+        }
+        to {
+            opacity: 1
+        }
+    }
+
+
+
+
+
+                        JS CODE
+
+
+
+
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1 }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+    setTimeout(showSlides, 2000);
